@@ -36,6 +36,7 @@ pub async fn user_info(
         "equipped": [],
         "lastUsed": userinfo.last_used,
         "equippedBadges": {
+            // todo: turn this data into a struct
             "special": [0,0,0,0,0,0],
             "pride": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },
