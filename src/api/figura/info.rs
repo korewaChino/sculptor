@@ -225,23 +225,35 @@ pub struct ServerLimits {
 // todo: use the above code to implement this
 pub async fn limits(State(state): State<AppState>) -> Json<Value> {
     let state = &state.config.read().await.limitations;
-    Json(json!({
-        "rate": {
-            "pingSize": 1024,
-            "pingRate": 32,
-            "equip": 1,
-            "download": 50,
-            "upload": 1
+
+    let limits = ServerLimits {
+        rate: RateLimit::default(),
+        limits: Limits {
+            max_avatar_size: state.max_avatar_size,
+            max_avatars: state.max_avatars,
+            allowed_badges: Badges::default(),
         },
-        "limits": {
-            "maxAvatarSize": state.max_avatar_size,
-            "maxAvatars": state.max_avatars,
-            "allowedBadges": {
-                "special": [0,0,0,0,0,0],
-                "pride": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-        }
-    }))
+    };
+
+    Json(serde_json::to_value(limits).unwrap())
+
+    // Json(json!({
+    //     "rate": {
+    //         "pingSize": 1024,
+    //         "pingRate": 32,
+    //         "equip": 1,
+    //         "download": 50,
+    //         "upload": 1
+    //     },
+    //     "limits": {
+    //         "maxAvatarSize": state.max_avatar_size,
+    //         "maxAvatars": state.max_avatars,
+    //         "allowedBadges": {
+    //             "special": [0,0,0,0,0,0],
+    //             "pride": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    //         }
+    //     }
+    // }))
 }
 
 #[cfg(test)]
