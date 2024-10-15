@@ -28,31 +28,31 @@ Special badges
 6 Художник текстур мода               | Figura mod Texture Artist!
 
 Pride badges
-1  Агендерный
-2  Ароэйс
-3  Ароматик
-4  Асексуал
-5  Бигендер
-6  Бисексуал
-7  Демибой
-8  Демигендер
-9  Демигирл
-10 Демироматик
-11 Демисексуал
-12 Инвалидности
-13 Финсексуал
-14 Гей Мужчины
-15 Гендерфай
-16 Гендерфлюид
-17 Гендерквир
-18 Интерсекс
-19 Лесбиянка
-20 Небинар
-21 Пансексуал
-22 Плюрал
-23 Полисексуал
-24 Прайд
-25 Трансгендер
+1  Agender
+2  Aroace
+3  Aromantic
+4  Asexual
+5  Bigender
+6  Bisexual
+7  Demiboy
+8  Demigender
+9  Demigirl
+10 Demiromantic
+11 Demisexual
+12 Disability
+13 Finsexual
+14 Gay Men
+15 Genderfae
+16 Genderfluid
+17 Genderqueer
+18 Intersex
+19 Lesbian
+20 Nonbinary
+21 Pansexual
+22 Plural
+23 Polysexual
+24 Pride
+25 Transgender
 
 Toast
 0 Blue (Default)
