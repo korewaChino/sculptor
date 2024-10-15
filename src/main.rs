@@ -91,7 +91,7 @@ async fn main() -> Result<()> {
     //     prev_hook(panic_info);
     // }));
 
-    info!("The Sculptor v{}{}", SCULPTOR_VERSION, check_updates(REPOSITORY, &SCULPTOR_VERSION).await?);
+    info!("The Sculptor v{}{}", SCULPTOR_VERSION, check_updates(REPOSITORY, SCULPTOR_VERSION).await?);
     
     {
         let path = PathBuf::from("avatars");

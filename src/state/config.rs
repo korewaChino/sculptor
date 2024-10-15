@@ -49,9 +49,9 @@ pub struct AdvancedUsers {
     #[serde(default)]
     pub banned: bool,
     #[serde(default)]
-    pub special: [u8;6],
+    pub special: [u8; 6],
     #[serde(default)]
-    pub pride: [u8;25],
+    pub pride: [u8; 25],
 }
 
 #[derive(Deserialize, Clone, Debug, PartialEq)]
@@ -61,11 +61,11 @@ pub struct BannedPlayer {
     pub name: String,
 }
 
-impl Into<Userinfo> for BannedPlayer {
-    fn into(self) -> Userinfo {
+impl From<BannedPlayer> for Userinfo {
+    fn from(val: BannedPlayer) -> Self {
         Userinfo {
-            uuid: self.uuid,
-            username: self.name,
+            uuid: val.uuid,
+            username: val.name,
             banned: true,
             ..Default::default()
         }
@@ -92,11 +92,11 @@ impl Config {
                     warn!("Unknown tryed to use admin functions, but use wrong token!");
                     Err(ApiError::Unauthorized)
                 }
-            },
+            }
             None => {
                 warn!("Unknown tryed to use admin functions, but token is not defined!");
                 Err(ApiError::BadRequest)
-            },
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ pub(super) async fn ban(
 
     info!("Trying ban user: {uuid}");
     
-    state.user_manager.ban(&Userinfo { uuid: uuid, banned: true, ..Default::default() });
+    state.user_manager.ban(&Userinfo { uuid, banned: true, ..Default::default() });
     Ok("ok")
 }
 

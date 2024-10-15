@@ -42,7 +42,7 @@ async fn get_latest_version(repo: &str, current_version: Version) -> anyhow::Res
 }
 
 pub async fn check_updates(repo: &str, current_version: &str) -> anyhow::Result<String> {
-    let current_version = semver::Version::parse(&current_version)?;
+    let current_version = semver::Version::parse(current_version)?;
 
     match get_latest_version(repo, current_version).await {
         Ok(d) => if let Some(text) = d {
@@ -83,10 +83,8 @@ pub async fn get_figura_versions() -> anyhow::Result<FiguraVersions> {
                 if tag_ver > prerelease_ver {
                     prerelease_ver = tag_ver
                 }
-            } else {
-                if tag_ver > release_ver {
-                    release_ver = tag_ver
-                }
+            } else if tag_ver > release_ver {
+                release_ver = tag_ver
             }
         }
         if release_ver > prerelease_ver {

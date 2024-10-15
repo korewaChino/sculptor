@@ -35,9 +35,9 @@ pub fn update_advanced_users(value: &std::collections::HashMap<Uuid, AdvancedUse
         .iter()
         .map( |(uuid, userdata)| {
             (
-            uuid.clone(),
+            *uuid,
             Userinfo { 
-                uuid: uuid.clone(),
+                uuid: *uuid,
                 username: userdata.username.clone(),
                 banned: userdata.banned,
                 ..Default::default()
